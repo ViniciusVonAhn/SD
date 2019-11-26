@@ -8,9 +8,6 @@ export const environment = {
 
   urlBffConect: 'http://localhost',
   paths: {
-    city: '9091/funcio',
-    country: '9090/state',
-    state: '/country',
     funcionario: '/funcionarios',
     hotel: '/hoteis'
   }

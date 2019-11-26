@@ -1,5 +1,5 @@
 const hotelRepository = require('../repository/hotel.repository')
-const msgWarnings = require('../genericFunction/mensagens.fiergs')
+const msgWarnings = require('../genericFunction/mensagens')
 
 exports.deleteHotel = async (id) => {
     let result;

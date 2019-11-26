@@ -4,6 +4,7 @@ export const environment = {
   role: "ok",
   urlBffConect: 'http://localhost',
   paths: {
-    person: "/person"
+    funcionario: '/funcionarios',
+    hotel: '/hoteis'
   }
 };

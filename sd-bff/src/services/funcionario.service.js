@@ -1,5 +1,5 @@
 const funcionarioRepository = require('../repository/funcionario.repository')
-const msgWarnings = require('../genericFunction/mensagens.fiergs')
+const msgWarnings = require('../genericFunction/mensagens')
 const hotelRepository = require('../repository/hotel.repository')
 
 exports.getNameHotel = async (params) => {
