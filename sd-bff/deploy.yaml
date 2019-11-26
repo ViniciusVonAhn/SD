@@ -1,0 +1,54 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: ccor-bff
+  labels:
+    app: ccor-bff
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: ccor-bff
+  template:
+    metadata:
+      labels:
+        app: ccor-bff
+    spec:
+      serviceAccountName: pod-reader-service-account
+      hostAliases:
+      - ip: 172.16.1.221
+        hostnames:
+        - wwwdes.sistemafiergs.org.br
+      - ip: 172.16.1.66
+        hostnames:
+        - srvdes
+      containers:
+      - name: ccor-bff
+        image: srvnexus.sistemafiergs.com.br/ccor-bff
+        ports:
+        - containerPort: 80
+          name: web
+        volumeMounts:
+        - name: tz-config
+          mountPath: /etc/localtime
+      imagePullSecrets:
+      - name: gavbtavaresregcred
+      volumes:
+      - name: tz-config
+        hostPath:
+          path: /usr/share/zoneinfo/America/Sao_Paulo
+---
+apiVersion: v1
+kind: Service
+metadata:
+  name: ccor-bff-service
+  labels:
+    app: ccor-bff-service
+spec:
+  ports:
+  - port: 80
+    targetPort: web
+    protocol: TCP
+  selector:
+    app: ccor-bff
+  type: NodePort

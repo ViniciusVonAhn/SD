@@ -1,0 +1,16 @@
+<toaster-container [toasterconfig]="config"></toaster-container>
+
+<div class="background-image" [hidden]="globals.logado"></div>
+
+<block-ui>
+    <app-sidebar [hidden]="globals.sidebar"></app-sidebar>
+    <!-- <div id="page-content-wrapper" class="hide"> -->
+        <div class="container-fluid">
+            <router-outlet style="overflow: scroll;"></router-outlet>
+        </div>
+    <!-- </div> -->
+</block-ui>
+
+<!-- <div class="logo-bottom-fixed">
+    <img class="logo-bottom-fixed" src="assets/Logo do Centro - Color.png" alt="logo">
+</div> -->

@@ -1,0 +1,73 @@
+
+
+<div class="header">
+  <h4 class="text-header">Países</h4>
+</div>
+
+<form [formGroup]="countryFilter">
+  <div class="col-12">
+    <input formControlName="name" class="form-control" (keyup.enter)="filter()" placeholder="Digite sua busca" />
+  </div>
+  <div class="row">
+    <div class="col-12">
+      <a href="#/countries/create" id="btnNewRegister" role="button"
+        class="btn btn-outline-info btnInfo btn-new-register">Cadastrar País</a>
+      <div class="float-right">
+        <div class="form-group">
+          <mat-checkbox formControlName="onlyActive" (change)="filter()">Filtrar somente pelos ativos
+          </mat-checkbox>
+        </div>
+      </div>
+    </div>
+  </div>
+</form>
+
+<div class="content">
+
+  <ng-container *ngIf="dataSource; else tableEmptyTemplate">
+
+    <table mat-table [dataSource]="dataSource" *ngIf="pageTotal > 0; else tableEmptyTemplate">
+
+      <ng-container matColumnDef="id">
+        <th mat-header-cell *matHeaderCellDef> Código </th>
+        <td mat-cell *matCellDef="let element" [ngClass]="{'inactive': !element.active }"> {{element.id}} </td>
+      </ng-container>
+
+      <ng-container matColumnDef="name">
+        <th mat-header-cell *matHeaderCellDef> Nome </th>
+        <td mat-cell *matCellDef="let element" [ngClass]="{'inactive': !element.active }"> {{element.name}} </td>
+      </ng-container>
+
+      <ng-container matColumnDef="initials">
+        <th mat-header-cell *matHeaderCellDef> Sigla </th>
+        <td mat-cell *matCellDef="let element" [ngClass]="{'inactive': !element.active }"> {{element.initials}} </td>
+      </ng-container>
+
+      <ng-container matColumnDef="active">
+        <th mat-header-cell *matHeaderCellDef> Status </th>
+        <td mat-cell *matCellDef="let element" [ngClass]="{'inactive': !element.active }">
+          {{element.active ? "Ativo" : "Inativo"}} </td>
+      </ng-container>
+
+      <ng-container matColumnDef="actions">
+        <th mat-header-cell *matHeaderCellDef> Ações </th>
+        <td mat-cell *matCellDef="let element">
+          <a [routerLink]="['create',  element.id]" id="editLink" title="Alterar"><i class="fas fa-pen"></i></a>
+          &nbsp;&nbsp;
+          <a (click)="openDialog(element.id)" id="deleteLink" title="Excluir"><i class="fas fa-trash"></i></a>
+        </td>
+      </ng-container>
+      <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
+      <tr mat-row *matRowDef="let row; columns: displayedColumns"></tr>
+    </table>
+    <mat-paginator [style.visibility]="pageTotal > 0 ? 'visible' : 'hidden'" [length]="pageTotal"
+                   (page)="onPageSwitch($event)" [pageSizeOptions]=""
+                   [pageSize]="global.pageSizeDefault">
+    </mat-paginator>
+  </ng-container>
+
+  <ng-template #tableEmptyTemplate>
+    Não tem nenhum item cadastrado.
+  </ng-template>
+
+</div>

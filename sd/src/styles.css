@@ -1,0 +1,106 @@
+/* You can add global styles to this file, and also import other style files */
+
+/* Global Customizations*/
+
+html {
+    height: 100%;
+    margin: 0;
+}
+
+body {
+    height: 100%;
+    margin: 0;
+    font-family: "Roboto", "Helvetica Neue", sans-serif;
+}
+
+*:focus {
+    outline: none!important;
+    /* box-shadow: none!important; */
+}
+
+.required-input{
+    color: #ff0000;
+}
+
+textarea {
+    padding: 20px;
+}
+
+hr {
+    border-width: 2px!important;
+}
+
+.row {
+    margin: 0!important;
+    padding: 0!important;
+}
+
+.form-group {
+    width: 100%!important;
+    margin-top: 12px!important;
+    margin-bottom: 12px!important;
+}
+
+.header{
+    text-align: center;
+    border: solid 1px #000;
+    border-radius: 50px;
+    padding: 5px;
+    margin-bottom: 30px;
+    margin-top: 50px;
+}
+
+.text-header{
+    margin:0;
+}
+
+.form-group {
+    position: relative;
+    margin-bottom: 1.5rem;
+}
+
+.form-control-placeholder {
+    position: absolute;
+    top: 0;
+    padding: 7px 0 0 13px;
+    transition: all 200ms;
+    opacity: 0.5;
+}
+
+.form-control {
+    border-radius: 50px!important;
+}
+
+.form-control:focus+.form-control-placeholder, .form-control:valid+.form-control-placeholder {
+    padding-left: 0;
+    font-size: 12pt;
+    transform: translate3d(0, -100%, 0);
+    opacity: 1;
+}
+
+/* Scrollbar Personalizado */
+
+/* width */
+::-webkit-scrollbar {
+    width: 10px;
+    height: 10px;
+}
+
+/* Track */
+::-webkit-scrollbar-track {
+    background: rgba(136, 136, 136, 0.2);
+    border-radius: 10px;
+}
+
+/* Handle */
+::-webkit-scrollbar-thumb {
+    background: rgba(136, 136, 136, 0.5);
+    border-radius: 10px;
+}
+
+/* Handle on hover */
+::-webkit-scrollbar-thumb:hover {
+    background: rgba(136, 136, 136, 1);
+}
+
+/* End scrollbar Personalizado*/

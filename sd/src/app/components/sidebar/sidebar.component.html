@@ -1,0 +1,25 @@
+<button type="button" class="btn-toggle" id="menu-toggle" placement="left" ngbTooltip="Sidebar">
+  <img class="icon-btn-toggle" src="assets/exchange-arrows.png">
+</button>
+
+<div class="d-flex" id="wrapper">
+  <div class="bg-light border-right" id="sidebar-wrapper">
+    <div class="list-group list-group-flush">
+      <a href="#/home" class="list-group-item list-group-item-action bg-light" placement="right" ngbTooltip="Home">
+        <img class="icon-img" src="assets/home.png">
+      </a>
+      <a href="#/hotel" class="list-group-item list-group-item-action bg-light" placement="right"
+        ngbTooltip="Hotéis">
+        <img class="icon-img" src="assets/home.png">
+      </a>
+      <a href="#/funcionario" class="list-group-item list-group-item-action bg-light" placement="right"
+        ngbTooltip="funcionários">
+        <img class="icon-img" src="assets/home.png">
+      </a>
+      <a href="#" class="list-group-item list-group-item-action bg-light item-logout" (click)="logout()" placement="right"
+        ngbTooltip="Logout">
+        <img class="icon-img" src="assets/logout.png">
+      </a>
+    </div>
+  </div>
+</div>

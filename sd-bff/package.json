@@ -1,0 +1,59 @@
+{
+  "name": "ccor-bff",
+  "version": "1.0.0",
+  "description": "Este é o servico de conexao do front com o back",
+  "main": "server.js",
+  "scripts": {
+    "test": "set NODE_ENV=develop && nodemon ./bin/server.js",
+    "start": "node --inspect ./bin/server.js"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+ssh://git@bitbucket.org/ginfodesenv/bff-back_for_front.git"
+  },
+  "keywords": [
+    "BFF",
+    "GAVB",
+    "FIERGS"
+  ],
+  "author": "Eduardo Hernandorena",
+  "license": "ISC",
+  "homepage": "https://bitbucket.org/ginf odesenv/bff-back_for_front#readme",
+  "dependencies": {
+    "@cloudant/cloudant": "^3.0.2",
+    "@types/watson-developer-cloud": "^2.40.0",
+    "base-64": "^0.1.0",
+    "basic-auth": "^2.0.1",
+    "body-parser": "^1.18.3",
+    "connect-multiparty": "^2.2.0",
+    "connect-timeout": "^1.9.0",
+    "cookie-session": "^2.0.0-beta.3",
+    "cors": "^2.8.5",
+    "dotenv": "^6.2.0",
+    "express": "^4.16.4",
+    "express-session": "^1.15.6",
+    "file-system": "^2.2.2",
+    "form-data": "^2.5.0",
+    "fs": "0.0.1-security",
+    "helmet": "^3.15.0",
+    "http": "0.0.0",
+    "https": "^1.0.0",
+    "install": "^0.12.2",
+    "jsonwebtoken": "^8.4.0",
+    "mongoose": "^5.3.16",
+    "morgan": "^1.9.1",
+    "multer": "^1.4.2",
+    "node-xlsx": "^0.15.0",
+    "npm": "^6.9.0",
+    "q": "^1.5.1",
+    "request": "^2.88.0",
+    "sha256": "^0.2.0",
+    "xmlhttprequest": "^1.8.0"
+  },
+  "devDependencies": {
+    "axios": "^0.19.0",
+    "excel-date-to-js": "^1.0.0",
+    "express-debug": "^1.1.1",
+    "nodemon": "^1.18.8"
+  }
+}

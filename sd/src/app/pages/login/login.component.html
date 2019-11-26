@@ -1,0 +1,24 @@
+<form [formGroup]="loginForm" (ngSubmit)="login()" novalidate>
+  <div class="box-login">
+    <div class="div-login">
+      <span class="tituloLogin">Sistemas Distribuidos</span>
+    </div>
+    <div>
+      <div class="row col-12">
+        <div class="form-group">
+          <input class="form-control col-12" type="text" formControlName="login" id="login"
+            [(ngModel)]="user.login" [ngClass]="{'is-invalid': submitted && l.login.errors}">
+          <label class="form-control-placeholder" for="login">Login</label>
+        </div>
+      </div>
+      <div class="form-group">
+        <input class="form-control col-12" type="password" formControlName="senha" id="senha" [(ngModel)]="user.senha"
+          [ngClass]="{'is-invalid': submitted && l.senha.errors}">
+        <label class="form-control-placeholder" for="senha">Senha</label>
+      </div>
+    </div>
+    <div class="button-row">
+      <button class="btn btn-outline-primary" type="submit">Login</button>
+    </div>
+  </div>
+</form>

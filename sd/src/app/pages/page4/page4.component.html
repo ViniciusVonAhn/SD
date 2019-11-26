@@ -1,0 +1,130 @@
+<div class="header">
+  <h4 class="text-header">Page 4 - Example</h4>
+</div>
+<form [formGroup]="exampleForm" (ngSubmit)="salvar()" novalidate>
+  <p>Inputs</p>
+  <hr>
+  <div class="row">
+    <div class="form-group col-12">
+      <label for="input1">Input 1<span class="required-input"> *</span></label>
+      <input class="form-control" type="text" formControlName="input1" id="input1"
+        [ngClass]="{'is-invalid': submitted && ef.input1.errors}" placeholder="col-12">
+    </div>
+  </div>
+  <div class="row">
+    <div class="form-group col-md-6 col-12">
+      <label for="input2">Input 2<span class="required-input"> *</span></label>
+      <input class="form-control" type="text" formControlName="input2" id="input2"
+        [ngClass]="{'is-invalid': submitted && ef.input2.errors}" placeholder="col-md-6 col-12">
+    </div>
+    <div class="form-group col-md-6 col-12">
+      <label for="input3">Input 3<span class="required-input"> *</span></label>
+      <input class="form-control" type="text" formControlName="input3" id="input3"
+        [ngClass]="{'is-invalid': submitted && ef.input3.errors}" placeholder="col-md-6 col-12">
+    </div>
+  </div>
+  <div class="row">
+    <div class="form-group col-md-4 col-12">
+      <label for="input4">Input 4<span class="required-input"> *</span></label>
+      <input class="form-control" type="text" formControlName="input4" id="input4"
+        [ngClass]="{'is-invalid': submitted && ef.input4.errors}" placeholder="col-md-4 col-12">
+    </div>
+    <div class="form-group col-md-4 col-12">
+      <label for="input5">Input 5<span class="required-input"> *</span></label>
+      <input class="form-control" type="text" formControlName="input5" id="input5"
+        [ngClass]="{'is-invalid': submitted && ef.input5.errors}" placeholder="col-md-4 col-12">
+    </div>
+    <div class="form-group col-md-4 col-12">
+      <label for="input6">Input 6<span class="required-input"> *</span></label>
+      <input class="form-control" type="text" formControlName="input6" id="input6"
+        [ngClass]="{'is-invalid': submitted && ef.input6.errors}" placeholder="col-md-4 col-12">
+    </div>
+  </div>
+  <p>Selects</p>
+  <hr>
+  <div class="row">
+    <div class="form-group col-12">
+      <label for="select1">Select 1<span class="required-input"> *</span></label>
+      <select class="form-control" type="text" formControlName="select1" id="select1"
+        [ngClass]="{'is-invalid': submitted && ef.select1.errors}">
+        <option *ngFor="let item of itens" [ngValue]="item.value">{{item.label}}</option>
+      </select>
+    </div>
+  </div>
+  <div class="row">
+    <div class="form-group col-md-6 col-12">
+      <label for="select2">Select 2<span class="required-input"> *</span></label>
+      <select class="form-control" type="text" formControlName="select2" id="select2"
+        [ngClass]="{'is-invalid': submitted && ef.select2.errors}">
+        <option *ngFor="let item of itens" [ngValue]="item.value">{{item.label}}</option>
+      </select>
+    </div>
+    <div class="form-group col-md-6 col-12">
+      <label for="select3">Select 3<span class="required-input"> *</span></label>
+      <select class="form-control" type="text" formControlName="select3" id="select3"
+        [ngClass]="{'is-invalid': submitted && ef.select3.errors}">
+        <option *ngFor="let item of itens" [ngValue]="item.value">{{item.label}}</option>
+      </select>
+    </div>
+  </div>
+  <div class="row">
+    <div class="form-group col-md-4 col-12">
+      <label for="select2">Select 4<span class="required-input"> *</span></label>
+      <select class="form-control" type="text" formControlName="select4" id="select4"
+        [ngClass]="{'is-invalid': submitted && ef.select4.errors}">
+        <option *ngFor="let item of itens" [ngValue]="item.value">{{item.label}}</option>
+      </select>
+    </div>
+    <div class="form-group col-md-4 col-12">
+      <label for="select5">Select 5<span class="required-input"> *</span></label>
+      <select class="form-control" type="text" formControlName="select5" id="select5"
+        [ngClass]="{'is-invalid': submitted && ef.select5.errors}">
+        <option *ngFor="let item of itens" [ngValue]="item.value">{{item.label}}</option>
+      </select>
+    </div>
+    <div class="form-group col-md-4 col-12">
+      <label for="select6">Select 6<span class="required-input"> *</span></label>
+      <select class="form-control" type="text" formControlName="select6" id="select6"
+        [ngClass]="{'is-invalid': submitted && ef.select6.errors}">
+        <option *ngFor="let item of itens" [ngValue]="item.value">{{item.label}}</option>
+      </select>
+    </div>
+  </div>
+  <p>Inputs com Máscara</p>
+  <hr>
+  <div class="row">
+    <div class="form-group col-md-6 col-12">
+      <label for="input2">Input Mask 1</label>
+      <input class="form-control" type="text" formControlName="inputmask1" id="inputmask1"
+        [ngClass]="{'is-invalid': submitted && ef.inputmask1.errors}" placeholder="Data Mask"
+        [textMask]="{mask:globals.masks.data}">
+    </div>
+    <div class="form-group col-md-6 col-12">
+      <label for="inputmask2">Input Mask 2</label>
+      <input class="form-control" type="text" formControlName="inputmask2" id="inputmask2"
+        [ngClass]="{'is-invalid': submitted && ef.inputmask2.errors}" placeholder="Hora Mask"
+        [textMask]="{mask:globals.masks.hora}">
+    </div>
+  </div>
+  <div class="row">
+    <div class="form-group col-md-6 col-12">
+      <label for="inputmask3">Input Mask 3</label>
+      <input class="form-control" type="text" formControlName="inputmask3" id="inputmask3"
+        [ngClass]="{'is-invalid': submitted && ef.inputmask3.errors}" placeholder="CPF Mask"
+        [textMask]="{mask:globals.masks.cpf}">
+    </div>
+    <div class="form-group col-md-6 col-12">
+      <label for="inputmask4">Input Mask 4</label>
+      <input class="form-control" type="text" formControlName="inputmask4" id="inputmask4"
+        [ngClass]="{'is-invalid': submitted && ef.inputmask4.errors}" placeholder="CNPJ Mask"
+        [textMask]="{mask:globals.masks.cnpj}">
+    </div>
+  </div>
+  <hr>
+  <div class="row">
+    <div class="form-group col-12" style="text-align: center;">
+      <button type="submit" class="btn btn-outline-success btnAccept"
+        style="border-radius: 80px;padding-left: 80px; padding-right: 80px;">Salvar</button>
+    </div>
+  </div>
+</form>

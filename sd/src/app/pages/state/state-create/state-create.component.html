@@ -1,0 +1,78 @@
+<div class="header">
+  <h4 class="text-header">Cadastro de Estado</h4>
+</div>
+
+<form [formGroup]="stateForm" novalidate>
+
+  <div class="row">
+    <div class="form-group col-12 col-md-11">
+      <label for="country">País<span class="required-input"> *</span></label>
+      <select class="form-control" type="text" formControlName="country" id="country" (change)="onChangeCountry()"
+              [ngClass]="{'is-invalid': submitted && ef.country.errors}">
+        <option *ngFor="let country of countries" [disabled]="!country.active" [value]="country.id">
+          {{ country.name }}
+        </option>
+      </select>
+    </div>
+
+    <ng-container *ngIf="haveId;">
+      <div class="form-group col-12 col-md-1" style="text-align:right;vertical-align: baseline">
+        <div class="checkbox">
+          <label for="active">Ativo</label>
+          <mat-slide-toggle formControlName="active" id="active" tabindex="-1"></mat-slide-toggle>
+        </div>
+      </div>
+    </ng-container>
+  </div>
+
+  <div class="row">
+    <div class="form-group col-12 col-md-3">
+      <label for="key">Chave</label>
+      <input [maxLength]="20" class="form-control" formControlName="key" id="key" type="text"
+             [ngClass]="{'is-invalid': submitted && ef.key.errors}">
+    </div>
+    <div class="form-group col-12 col-md-6">
+      <label for="name">Nome<span class="required-input"> *</span></label>
+      <input [maxLength]="150" class="form-control" formControlName="name" id="name" type="text"
+             [ngClass]="{'is-invalid': submitted && ef.name.errors}">
+    </div>
+
+    <div class="form-group col-12 col-md-3">
+      <label for="initials">Sigla<span class="required-input"> *</span></label>
+      <input [maxLength]="2" class="form-control" formControlName="initials" id="initials" type="text"
+             [ngClass]="{'is-invalid': submitted && ef.initials.errors}">
+    </div>
+  </div>
+
+  <div class="row">
+    <div class="form-group col-12 col-md-8">
+      <label for="geographicRegion">Região geográfica<span *ngIf="isBrazil;" class="required-input"> *</span></label>
+      <select class="form-control" formControlName="geographicRegion" id="geographicRegion"
+              [ngClass]="{'is-invalid': submitted && ef.geographicRegion.errors}">
+        <option [value]="null"></option>
+        <option *ngFor="let gr of regions" [value]="gr">{{ gr }}</option>
+      </select>
+    </div>
+
+    <div class="form-group col-12 col-md-4">
+      <label for="ibgeCode">Codigo IBGE<span *ngIf="isBrazil;" class="required-input"> *</span></label>
+      <input [maxLength]="20" class="form-control" formControlName="ibgeCode" id="ibgeCode" type="text"
+             [ngClass]="{'is-invalid': submitted && ef.ibgeCode.errors}">
+    </div>
+  </div>
+
+  <hr>
+  <div class="row">
+    <div class="form-group col-12 col-md-6" style="text-align: center;">
+      <button type="button" (click)="create()" class="btn btn-outline-success btnAccept"
+              style="border-radius: 80px;padding-left: 80px; padding-right: 80px;">Salvar
+      </button>
+    </div>
+
+    <div class="form-group col-12 col-md-6" style="text-align: left;">
+      <button type="button" (click)="cancel()" class="btn btn-outline-danger btnDanger"
+              style="border-radius: 80px;padding-left: 80px; padding-right: 80px;">Cancelar
+      </button>
+    </div>
+  </div>
+</form>

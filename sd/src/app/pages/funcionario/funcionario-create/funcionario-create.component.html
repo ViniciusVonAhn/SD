@@ -1,0 +1,54 @@
+<div class="header">
+    <h4 class="text-header">Cadastro de Funcionário</h4>
+  </div>
+  
+  <form [formGroup]="funcionarioForm" novalidate>
+  
+    <div class="row">
+      <div class="form-group col-12 col-md-12">
+        <label for="hotel">Hotel<span class="required-input"> *</span></label>
+        <select class="form-control" type="text" formControlName="hotel" id="hotel"
+                [ngClass]="{'is-invalid': submitted && ef.hotel.errors}">
+          <option *ngFor="let hotel of hoteis" [value]="hotel.id">
+            {{ hotel.name }}
+          </option>
+        </select>
+      </div>
+    </div>
+  
+    <div class="row">
+      <div class="form-group col-12 col-md-6">
+        <label for="name">Nome<span class="required-input"> *</span></label>
+        <input [maxLength]="20" class="form-control" formControlName="name" id="name" type="text"
+               [ngClass]="{'is-invalid': submitted && ef.name.errors}">
+      </div>
+
+      <div class="form-group col-12 col-md-3">
+          <label for="age">Idade<span class="required-input"> *</span></label>
+          <input [maxLength]="2" class="form-control" formControlName="age" id="age" type="number"
+                 [ngClass]="{'is-invalid': submitted && ef.age.errors}">
+        </div>
+
+      <div class="form-group col-12 col-md-3">
+        <label for="cpf">CPF<span class="required-input"> *</span></label>
+        <input [maxLength]="150" class="form-control" formControlName="cpf" id="cpf" type="text"
+               [ngClass]="{'is-invalid': submitted && ef.cpf.errors}" [textMask]="{mask:global.masks.cpf}">
+      </div>
+    </div>
+  
+    <hr>
+    <div class="row">
+      <div class="form-group col-12 col-md-6" style="text-align: center;">
+        <button type="button" (click)="create()" class="btn btn-outline-success btnAccept"
+                style="border-radius: 80px;padding-left: 80px; padding-right: 80px;">Salvar
+        </button>
+      </div>
+  
+      <div class="form-group col-12 col-md-6" style="text-align: left;">
+        <button type="button" (click)="cancel()" class="btn btn-outline-danger btnDanger"
+                style="border-radius: 80px;padding-left: 80px; padding-right: 80px;">Cancelar
+        </button>
+      </div>
+    </div>
+  </form>
+  

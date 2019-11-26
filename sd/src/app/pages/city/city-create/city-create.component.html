@@ -1,0 +1,121 @@
+<div class="header">
+  <h4 class="text-header">Cadastro de Município</h4>
+</div>
+
+<form [formGroup]="cityForm" (ngSubmit)="create()" novalidate>
+
+  <div class="row">
+    <div class="form-group col-12 col-md-6">
+      <label for="code">País<span class="required-input"> *</span></label>
+      <mat-select
+        class="form-control"
+        (selectionChange)="getStates(this.cityForm.controls.country.value)"
+        formControlName="country" id="country"
+        [ngClass]="{'is-invalid': submitted && ef.country.errors}"
+        placeholder="Selecione Um Pais">
+        <mat-option *ngFor="let country of countries" [value]="country.id">
+          {{country.name}}
+        </mat-option>
+      </mat-select>
+    </div>
+
+    <div class="form-group col-12 col-md-6">
+      <label for="code">Unidade Federativa<span *ngIf="isValidUf" class="required-input"> *</span></label>
+      <mat-select
+        class="form-control"
+        formControlName="state" id="state"
+        [ngClass]="{'is-invalid': submitted && ef.state.errors}"
+        placeholder="Selecione Um Estado">
+        <mat-option *ngFor="let state of staties" [value]="state.id">
+          {{state.name}}
+        </mat-option>
+      </mat-select>
+    </div>
+  </div>
+
+  <div class="row">
+
+    <div class="form-group col-12 col-md-4">
+      <label for="key">Chave</label>
+      <input [maxLength]="20" class="form-control" type="text" formControlName="key" id="key"
+        [ngClass]="{'is-invalid': submitted && ef.key.errors}">
+    </div>
+
+    <div class="form-group col-12 col-md-8">
+      <label for="name">Nome<span class="required-input"> *</span></label>
+      <input [maxLength]="150" class="form-control" type="text" formControlName="name" id="name"
+        [ngClass]="{'is-invalid': submitted && ef.name.errors}">
+    </div>
+  </div>
+
+  <div class="row">
+    <div class="form-group col-12 col-md-3">
+      <label for="codeIbge">Código IBGE<span *ngIf="isValidUf" class="required-input"> *</span></label>
+      <input [maxLength]="20" class="form-control" type="text" formControlName="codeIbge" id="codeIbge"
+        [ngClass]="{'is-invalid': submitted && ef.codeIbge.errors}">
+    </div>
+
+    <div class="form-group col-12 col-md-3">
+      <label for="codeRfb">Código RFB</label>
+      <input [maxLength]="20" class="form-control" type="text" formControlName="codeRfb" id="codeRfb"
+        [ngClass]="{'is-invalid': submitted && ef.codeRfb.errors}">
+    </div>
+
+    <div class="form-group col-12 col-md-3">
+      <label for="codeMec">Código MEC</label>
+      <input [maxLength]="20" class="form-control" type="text" formControlName="codeMec" id="codeMec"
+        [ngClass]="{'is-invalid': submitted && ef.codeMec.errors}">
+    </div>
+
+    <div class="form-group col-12 col-md-3">
+      <label for="codeDetran">Código DETRAN</label>
+      <input [maxLength]="20" class="form-control" type="text" formControlName="codeDetran" id="codeDetran"
+        [ngClass]="{'is-invalid': submitted && ef.codeDetran.errors}">
+    </div>
+  </div>
+
+  <div class="form-group col-12 col-md-4">
+    <div class="form-check">
+      <label class="form-check-label">
+        <input type="checkbox" class="form-check-input" name="capital" id="capital" formControlName="capital" value="capital">
+        Capital
+      </label>
+    </div>
+
+    <div class="form-check">
+      <label class="form-check-label">
+        <input type="checkbox" class="form-check-input" name="metropolitanRegion" formControlName="metropolitanRegion" id="metropolitanRegion"
+          value="metropolitanRegion">
+        Região Metropolitana
+      </label>
+    </div>
+  </div>
+
+  <ng-container>
+    <div class="row">
+        <div class="form-group col-12 col-md-2" style="text-align:left;vertical-align: middle" *ngIf="haveId;">
+          <div class="checkbox">
+            <label for="active">Ativo</label><br />
+            <mat-slide-toggle
+              formControlName="active"
+              id="active"
+              tabindex="-1"
+            ></mat-slide-toggle>
+          </div>
+        </div>
+    </div>
+  </ng-container>
+
+  <hr>
+  <div class="row">
+    <div class="form-group col-12 col-md-6" style="text-align: right;">
+      <button type="submit" class="btn btn-outline-success btnAccept"
+        style="border-radius: 80px;padding-left: 80px; padding-right: 80px;">Salvar</button>
+    </div>
+
+    <div class="form-group col-12 col-md-6" style="text-align: left;">
+      <button type="submit" (click)="cancel()" class="btn btn-outline-danger btnDanger"
+        style="border-radius: 80px;padding-left: 80px; padding-right: 80px;">Cancelar</button>
+    </div>
+  </div>
+</form>

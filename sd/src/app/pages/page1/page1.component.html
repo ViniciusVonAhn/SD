@@ -1,0 +1,22 @@
+<div class="header">
+  <h4 class="text-header">Page 1 - Example BFF Connection</h4>
+</div>
+
+<form [formGroup]="exampleForm" (ngSubmit)="ok()" novalidate>
+  <p>Inputs</p>
+  <hr>
+  <div class="row">
+    <div class="form-group col-12">
+      <label for="input1">Input 1<span class="required-input"> *</span></label>
+      <input class="form-control" type="text" formControlName="input1" id="input1"
+        [ngClass]="{'is-invalid': submitted && ef.input1.errors}">
+    </div>
+  </div>
+  <hr>
+  <div class="row">
+    <div class="form-group col-12" style="text-align: center;">
+      <button type="submit" class="btn btn-outline-success btnAccept"
+        style="border-radius: 80px;padding-left: 80px; padding-right: 80px;">Submit</button>
+    </div>
+  </div>
+</form>

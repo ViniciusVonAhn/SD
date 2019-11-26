@@ -1,0 +1,21 @@
+<div class="container">
+  <div class="row d-block">
+    <div class="col-12 titulo-mosaico">
+      <p style="margin:0; padding: 0;">Sistemas Distribuidos</p>
+    </div>
+  </div>
+  <div class="row d-block">
+    <div class="col-md-6 col-12 float-left item" placement="top" ngbTooltip="Hotéis"
+      (click)="changePage('hotel')">
+      <img class="icone" src="assets/document.png">
+    </div>
+    <div class="col-md-6 col-12 float-left item" placement="top" ngbTooltip="Funcionários"
+      (click)="changePage('funcionario')">
+      <img class="icone" src="assets/document.png">
+    </div>
+  </div>
+</div>
+
+<button type="button" class="btn-logout" (click)="logout()" placement="right" ngbTooltip="Logout">
+  <img class="img-btn-logout" src="assets/logout.png">
+</button>
