@@ -83,7 +83,7 @@ postGeneric(path: string, object: any) {
   }
 ```
 
-### BFF - NODEJS
+### Backend for Frontend(BFF) - NODEJS
 
 ##### ENV - Aqui eu seto a porta onde o server será exibido, o url do meu serviço, que no caso é o meu próprio localhost e o path para identificar onde estão os meus serviços(back-end).
 ```
